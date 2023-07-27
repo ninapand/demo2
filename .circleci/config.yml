@@ -1,7 +1,7 @@
-version: 2.1
+maiversion: 2.1
 
 jobs:
- npm & node ver:
+ build:
     #docker:
     #-image: cimg/node:14.13.0
   steps:
@@ -11,5 +11,5 @@ jobs:
 workflows:
 full_workflow:
   jobs:
-    - npm & node ver
+    - build
 
