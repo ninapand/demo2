@@ -1,15 +1,10 @@
 version: 2.1
-
+orbs:
+  newman: postman/newman@0.0.2
 jobs:
- npm & node ver:
-    #docker:
-    #-image: cimg/node:14.13.0
-  steps:
-  - checkout
-  - run: npm version
-
-workflows:
-full_workflow:
-  jobs:
-    - npm & node ver
-
+  newman-collection-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./collection.json
